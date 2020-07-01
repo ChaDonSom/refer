@@ -17,8 +17,10 @@ export async function auth(to, from, next) {
 
   let isAGuestRoute = guestRoutes.includes(to.path)
   if (!user) {
-    intended.value = from.path
-    if (!isAGuestRoute) return next('/login')
+    if (!isAGuestRoute) {
+      intended.value = from.path
+      return next('/login')
+    }
   } else {
     if (isAGuestRoute) return next('/')
   }
