@@ -18,7 +18,7 @@ export default function useLogin(router) {
       event.preventDefault()
       let response
       try {
-        await axios.get('/sanctum/csrf-cookie')
+        // await axios.get('/sanctum/csrf-cookie')
         response = await axios.post('/login', creds)
       } catch (e) {
         if (e.response && e.response.status == 419) {
@@ -31,8 +31,20 @@ export default function useLogin(router) {
       }
     }
 
+    const logout = async () => {
+      try {
+        let response = await axios.post('/logout')
+      } catch (e) {
+        if (e.response && e.response.status == 419) {
+          console.warn(e.response.data.message)
+        }
+      }
+      router.replace('/welcome')
+    }
+
     return {
       creds,
       login,
+      logout,
     }
 }
