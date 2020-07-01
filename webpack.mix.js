@@ -11,6 +11,9 @@ mix.webpackConfig({
         host: '0.0.0.0',
         // We need to let the dev server know to use penguin.linux.test
         public: 'penguin.linux.test:8080',
+        publicPath: 'http://penguin.linux.test:8080/',
+        sockHost: 'penguin.linux.test',
+        sockPort: '8080',
         // Move the bas path to /public
         contentBase: path.resolve(__dirname, 'public'),
         // Send calls to Laravel Artisan server

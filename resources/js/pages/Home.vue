@@ -6,13 +6,14 @@
           <h1>You're Home!</h1>
           <div class="card">
             <div class="card-header">Dashboard</div>
+            <div class="row justify-content-center mt-4">
+              <h4>Test</h4>
+            </div>
             <div class="card-body">
-              <div class="form-group row">
-                <div class="col-md-6 offset-md-1">
-                  <button class="btn btn-primary" @click="logout">
-                    Logout <!-- {{ __('Login') }} -->
-                  </button>
-                </div>
+              <div class="row justify-content-center">
+                <button class="btn btn-primary" @click="logout">
+                  Logout <!-- {{ __('Login') }} -->
+                </button>
               </div>
             </div>
           </div>
