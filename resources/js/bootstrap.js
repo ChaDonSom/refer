@@ -7,12 +7,14 @@ import VCA, {
   watch,
   watchEffect,
   reactive,
-  toRefs
+  toRefs,
+  onMounted,
+  onUnmounted,
 } from '@vue/composition-api'
 import VueRouter from 'vue-router'
+import axios from 'axios'
 Vue.use(VCA)
 Vue.use(VueRouter)
-import axios from 'axios'
 window.axios = axios
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -29,5 +31,7 @@ export {
   watch,
   watchEffect,
   reactive,
-  toRefs
+  toRefs,
+  onMounted,
+  onUnmounted,
 }

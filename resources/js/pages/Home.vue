@@ -4,7 +4,9 @@
 
 <script>
 export default {
-  
+  setup(props, context) {
+    return {}
+  },
 }
 </script>
 
