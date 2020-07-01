@@ -15,9 +15,12 @@ export const intended = ref('')
 export async function auth(to, from, next) {
   let user = await getUser()
 
+  let isAGuestRoute = guestRoutes.includes(to.path)
   if (!user) {
     intended.value = from.path
-    if (!guestRoutes.includes(to.path)) return next('/login')
+    if (!isAGuestRoute) return next('/login')
+  } else {
+    if (isAGuestRoute) return next('/')
   }
 
   return next()
