@@ -7,9 +7,13 @@ if (process.env.npm_lifecycle_event !== 'hot') {
 
 mix.webpackConfig({
     devServer: {
+        // Chromebook requires '0.0.0.0' IP to access at penguin.linux.test
         host: '0.0.0.0',
+        // We need to let the dev server know to use penguin.linux.test
         public: 'penguin.linux.test:8080',
+        // Move the bas path to /public
         contentBase: path.resolve(__dirname, 'public'),
+        // Send calls to Laravel Artisan server
         proxy: {
             '*': 'http://localhost:8000'
         }
