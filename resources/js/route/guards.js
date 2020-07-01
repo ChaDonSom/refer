@@ -1,11 +1,11 @@
 import useUser from '@store/users'
 
-const { user, getUser } = useUser()
+const { getUser } = useUser()
 
-export function auth(to, from, next) {
-  let user = getUser()
+export async function auth(to, from, next) {
+  let user = await getUser()
 
   if (!user) return next('/login')
 
-  next()
+  return next()
 }

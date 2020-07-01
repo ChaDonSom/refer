@@ -1,5 +1,4 @@
-import { ref, computed } from '@vue/composition-api'
-import axios from 'bootstrap'
+import { axios, ref, computed } from '@js/bootstrap'
 
 const userRef = ref({})
 

@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { Vue } from '@js/bootstrap'
 
 import router from '@route'
 

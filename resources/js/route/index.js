@@ -1,4 +1,4 @@
-import VueRouter from 'vue-router'
+import { VueRouter } from '@js/bootstrap'
 
 // Guards
 import { auth } from '@route/guards'
@@ -22,6 +22,6 @@ const router = new VueRouter({
   routes,
 })
 
-router.beforeEach(auth)
+router.beforeEach(auth) //
 
 export default router
