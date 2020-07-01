@@ -1,5 +1,6 @@
 import { axios, reactive, computed } from '@js/bootstrap'
 import { guestRoutes, intended } from '@route/guards'
+import useUser from '@store/users'
 
 // State
 const creds = reactive({
@@ -25,13 +26,12 @@ export default function useLogin(router) {
           console.warn(e.response.data.message)
         }
       }
-      if (intended.value) {
-        if (guestRoutes.includes(intended.value)) router.replace('/')
-        else router.replace(intended.value)
-      }
+      if (intended.value && !guestRoutes.includes(intended.value)) router.replace(intended.value)
+      else router.replace('/')
     }
 
     const logout = async () => {
+      const { setUser } = useUser()
       try {
         let response = await axios.post('/logout')
       } catch (e) {
@@ -39,6 +39,7 @@ export default function useLogin(router) {
           console.warn(e.response.data.message)
         }
       }
+      setUser(null)
       router.replace('/welcome')
     }
 
