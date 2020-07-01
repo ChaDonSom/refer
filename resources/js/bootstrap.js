@@ -10,6 +10,7 @@ import VCA, {
   toRefs,
   onMounted,
   onUnmounted,
+  createApp,
 } from '@vue/composition-api'
 import VueRouter from 'vue-router'
 import axios from 'axios'
@@ -34,4 +35,5 @@ export {
   toRefs,
   onMounted,
   onUnmounted,
+  createApp,
 }

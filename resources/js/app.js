@@ -1,7 +1,4 @@
-import { Vue } from '@js/bootstrap'
+import { Vue, createApp } from '@js/bootstrap'
+import App from '@pages/App'
 
-import router from '@route'
-
-const app = new Vue({
-    router,
-}).$mount('#app')
+const app = new Vue(App).$mount('#app')
