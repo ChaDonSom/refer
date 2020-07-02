@@ -37,5 +37,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-
+.fixed-top {
+  left: unset;
+}
 </style>

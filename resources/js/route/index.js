@@ -7,6 +7,7 @@ import { auth } from '@route/guards'
 import Home  from '@pages/Home'
 import Login from '@pages/Login'
 import Welcome from '@pages/Welcome'
+import Edit from '@pages/Edit'
 
 const routes = [
   {
@@ -20,6 +21,10 @@ const routes = [
   {
     path: '/welcome',
     component: Welcome,
+  },
+  {
+    path: '/edit',
+    component: Edit,
   }
 ]
 

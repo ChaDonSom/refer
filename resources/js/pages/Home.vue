@@ -9,9 +9,12 @@
               <div class="card-header">Dashboard</div>
               <div class="card-body">
                 <div class="row justify-content-center">
-                  <button class="btn btn-primary">
-                    Logout <!-- {{ __('Login') }} -->
-                  </button>
+                  <router-link class="btn btn-primary mx-auto" to="/edit">
+                    Edit <!-- {{ __('Login') }} -->
+                  </router-link>
+                  <router-link class="btn btn-primary mx-auto" to="/view">
+                    View <!-- {{ __('Login') }} -->
+                  </router-link>
                 </div>
               </div>
             </div>
