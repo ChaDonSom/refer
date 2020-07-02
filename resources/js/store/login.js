@@ -1,4 +1,5 @@
-import { axios, reactive, computed } from '@js/bootstrap'
+import axios from 'axios' 
+import { reactive } from '@js/vue'
 import { guestRoutes, intended } from '@route/guards'
 import useUser from '@store/users'
 

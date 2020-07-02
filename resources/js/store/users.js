@@ -1,9 +1,11 @@
-import { axios, ref, computed } from '@js/bootstrap'
+import { ref, computed } from '@js/vue'
+import axios from 'axios'
 
 // State
 const userRef = ref(null)
 
 export default function useUser() {
+
   // Mutations
   function setUser(value) {
     userRef.value = value

@@ -14,7 +14,7 @@
 
 <script>
 import useUser from '@store/users'
-import { ref } from '@vue/composition-api'
+import { ref } from '@js/vue'
 export default {
   setup(props, context) {
     const router = context.root.$router

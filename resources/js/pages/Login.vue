@@ -88,9 +88,10 @@
 </template>
 
 <script>
-import { axios } from '@js/bootstrap'
+import { axios } from 'axios'
 import useLogin from '@store/login'
 export default {
+  name: 'Login',
   setup(props, context) {
     const router = context.root.$router
     const {

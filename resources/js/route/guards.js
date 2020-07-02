@@ -1,5 +1,5 @@
 import useUser from '@store/users'
-import { ref } from '@vue/composition-api'
+import { ref } from '@js/vue'
 
 const { getUser } = useUser()
 

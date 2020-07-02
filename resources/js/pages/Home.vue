@@ -1,37 +1,33 @@
 <template>
-  <div>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <h1>You're Home!</h1>
-          <div class="card">
-            <div class="card-header">Dashboard</div>
-            <div class="row justify-content-center mt-4">
-              <h4>Test</h4>
-            </div>
-            <div class="card-body">
-              <div class="row justify-content-center">
-                <button class="btn btn-primary" @click="logout">
-                  Logout <!-- {{ __('Login') }} -->
-                </button>
+  <AppBarLayout>
+    <template #content>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <h1>You're Home!</h1>
+            <div class="card">
+              <div class="card-header">Dashboard</div>
+              <div class="card-body">
+                <div class="row justify-content-center">
+                  <button class="btn btn-primary">
+                    Logout <!-- {{ __('Login') }} -->
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </template>
+  </AppBarLayout>
 </template>
 
 <script>
-import useLogin from '@store/login'
+import AppBarLayout from '@comps/layouts/AppBarLayout'
 export default {
+  name: 'Home',
+  components: { AppBarLayout },
   setup(props, context) {
-    const router = context.root.$router
-    const { logout } = useLogin(router)
-    return {
-      logout
-    }
   },
 }
 </script>

@@ -1,4 +1,4 @@
-import { VueRouter } from '@js/bootstrap'
+import { VueRouter } from '@js/vue'
 
 // Guards
 import { auth } from '@route/guards'
