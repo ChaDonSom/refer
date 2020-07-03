@@ -17,9 +17,11 @@ import VueCompositionApi, {
   onErrorCaptured,
 } from '@vue/composition-api'
 import VueRouter from 'vue-router'
+import CKEditor from '@ckeditor/ckeditor5-vue'
 
 Vue.use(VueCompositionApi)
 Vue.use(VueRouter)
+Vue.use(CKEditor)
 
 export {
   Vue,

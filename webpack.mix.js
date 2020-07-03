@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+require('./ckeditor.mix.js');
 
 // version does not work in hmr mode
 if (process.env.npm_lifecycle_event !== 'hot') {
@@ -19,7 +20,7 @@ mix.webpackConfig({
         // Send calls to Laravel Artisan server
         proxy: {
             '*': 'http://localhost:8000'
-        }
+        },
     },
     resolve: {
         alias: {

@@ -1,23 +1,40 @@
 <template>
-  <ckeditor :editor="ClassicEditor" v-model="data" :config="editorConfig" />
+  <ckeditor :editor="editor" v-model="data" :config="editorConfig" ref="ckeditor" />
 </template>
 
 <script>
-import CKEditor from '@ckeditor/ckeditor5-vue'
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+import { ref, onMounted } from '@js/vue'
+import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor'
+// import Mention from '@ckeditor/ckeditor5-mention/src/mention'
+import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
+import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
+import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
+import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
+// import ContextualBalloon from '@ckeditor/ckeditor5-ui/src/panel/balloon/contextualballoon'
+
 export default {
-  components: {
-    ckeditor: CKEditor.component,
-  },
   data() { return {
-    ClassicEditor,
+    editor: ClassicEditor,
     data: "",
-    editorConfig: {},
-  }}
+    editorConfig: {
+      plugins: [
+        Essentials,
+        Paragraph,
+        Bold,
+        Italic,
+        // ContextualBalloon,
+        // Mention,
+      ],
+      toolbar: [
+        'bold', 'italic'
+      ],
+    }
+  }},
 }
 </script>
 
 <style>
-.ck-editor__editable {
-}
+/* .ck-editor__editable {
+  height: 50vh;
+} */
 </style>
