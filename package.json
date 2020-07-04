@@ -33,6 +33,7 @@
         "@ckeditor/ckeditor5-code-block": "^20.0.0",
         "@ckeditor/ckeditor5-dev-webpack-plugin": "^21.0.0",
         "@ckeditor/ckeditor5-editor-classic": "^20.0.0",
+        "@ckeditor/ckeditor5-editor-decoupled": "^20.0.0",
         "@ckeditor/ckeditor5-essentials": "^20.0.0",
         "@ckeditor/ckeditor5-font": "^20.0.0",
         "@ckeditor/ckeditor5-heading": "^20.0.0",
