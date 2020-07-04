@@ -18,6 +18,10 @@ import Link from '@ckeditor/ckeditor5-link/src/link';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent';
 import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock';
 import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
+import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
+import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock';
+import Font from '@ckeditor/ckeditor5-font/src/font';
+import List from '@ckeditor/ckeditor5-list/src/list';
 
 export default {
   data() { return {
@@ -27,20 +31,26 @@ export default {
       plugins: [
         Essentials,
         Paragraph,
+        Autoformat,
         RemoveFormat,
+        Font,
         Heading,
         Bold,
         Italic,
         Underline,
         Strikethrough,
         Code,
+        CodeBlock,
         Mention,
         Link,
+        List,
         Indent,
         IndentBlock,
       ],
       toolbar: [
-        'heading', 'bold', 'italic', 'underline', 'strikethrough', 'link', '|', 'removeFormat', '|', 'undo', 'redo'
+        'heading', 'bold', 'italic', 'underline', 'strikethrough', '|', 
+        'bulletedList', 'numberedList', '|', 
+        'undo', 'redo', 'link', 'removeFormat',
       ],
       mention: {
 
