@@ -88,11 +88,12 @@ export default {
 </script>
 
 <style lang="scss">
-/* .ck-editor__editable {
-  height: 50vh;
-} */
+.ck-editor__editable {
+  //                   rounded number based on observing the toolbar in the wild
+  height: calc(100vh - 38px);
+}
 @media (pointer: coarse) {
-  .ck.ck-toolbar.ck-toolbar_grouping.ck-reset_all.ck-rounded-corners[data-toolbar="true"] {
+  .ck.ck-toolbar.ck-toolbar_grouping.ck-reset_all.ck-rounded-corners.toolbar--keyboard-top-on-mobile {
     position: fixed;
     bottom: 0;
     // left: 0;
@@ -114,7 +115,7 @@ export default {
   }
 }
 @media screen and (max-width: 599px) {
-  .ck.ck-toolbar.ck-toolbar_grouping.ck-reset_all.ck-rounded-corners[data-toolbar="true"] {
+  .ck.ck-toolbar.ck-toolbar_grouping.ck-reset_all.ck-rounded-corners.toolbar--keyboard-top-on-mobile {
     position: absolute;
     bottom: 0;
     width: 100vw;
