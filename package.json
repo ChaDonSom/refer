@@ -38,6 +38,7 @@
         "@ckeditor/ckeditor5-font": "^20.0.0",
         "@ckeditor/ckeditor5-heading": "^20.0.0",
         "@ckeditor/ckeditor5-indent": "^20.0.0",
+        "@ckeditor/ckeditor5-inspector": "^2.1.0",
         "@ckeditor/ckeditor5-link": "^20.0.0",
         "@ckeditor/ckeditor5-list": "^20.0.0",
         "@ckeditor/ckeditor5-mention": "^20.0.0",

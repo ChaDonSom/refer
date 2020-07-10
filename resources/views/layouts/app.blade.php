@@ -15,7 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 </head>
-<body>
+<body style="overflow: hidden;">
     @yield('content')
 </body>
 </html>

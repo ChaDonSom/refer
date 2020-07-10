@@ -12,7 +12,6 @@
 import { ref, onMounted } from '@js/vue'
 import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor'
 import DecoupledEditor from '@ckeditor/ckeditor5-editor-decoupled/src/decouplededitor'
-import Mention from '@ckeditor/ckeditor5-mention/src/mention'
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
@@ -29,7 +28,9 @@ import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock';
 import Font from '@ckeditor/ckeditor5-font/src/font';
 import List from '@ckeditor/ckeditor5-list/src/list';
+import Mention from '@comps/editor/plugins/named-mention'
 import NiceToolbar from './NiceToolbar'
+import CKEditorInspector from '@ckeditor/ckeditor5-inspector'
 
 export default {
   data() { return {
@@ -58,12 +59,25 @@ export default {
         NiceToolbar,
       ],
       toolbar: [
-        'heading', 'bold', 'italic', 'underline', 'strikethrough', '|', 
-        'bulletedList', 'numberedList', '|', 
+        'bold', 'italic', 'underline', 'strikethrough', '|', 
+        'bulletedList', 'numberedList', '|', 'heading', 
         'undo', 'redo', 'link', 'removeFormat',
       ],
       mention: {
-
+        feeds: [
+          {
+            marker: '@',
+            feed: [
+              '@test', '@that', '@there', '@then', '@their', '@them'
+            ]
+          },
+          {
+            marker: '#',
+            feed: [
+              '#yellow', '#orange', '#red', '#green'
+            ]
+          }
+        ]
       }
     }
   }},
@@ -82,6 +96,8 @@ export default {
       // this.editor.ui.view.toolbar.element.style.bottom = '0'
       this.editor.ui.view.toolbar.set('maxWidth', window.innerWidth + 'px')
       // console.log(`window.innerWidth + 'px': `, window.innerWidth + 'px');
+
+      // CKEditorInspector.attach(this.editor)
     }
   }
 }
@@ -92,51 +108,27 @@ export default {
   //                   rounded number based on observing the toolbar in the wild
   height: calc(100vh - 38px);
 }
-@media (pointer: coarse) {
-  .ck.ck-toolbar.ck-toolbar_grouping.ck-reset_all.ck-rounded-corners.toolbar--keyboard-top-on-mobile {
-    position: fixed;
-    bottom: 0;
-    // left: 0;
-    // right: 0;
-  }
-  .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_se, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_sw {
-    top: auto;
-    bottom: 100%;
-  }
-  .ck.ck-tooltip-text {
-    bottom: 100%;
-  }
-  .ck.ck-tooltip.ck-tooltip_s {
-    transform: unset;
-  }
-  .ck.ck-tooltip.ck-tooltip_s .ck-tooltip__text::after {
-    bottom: calc(-1 * var(--ck-tooltip-arrow-size));
-    border-width: var(--ck-tooltip-arrow-size) var(--ck-tooltip-arrow-size) 0 var(--ck-tooltip-arrow-size)
-  }
+.ck.ck-toolbar.ck-toolbar_grouping.ck-reset_all.ck-rounded-corners.toolbar--keyboard-top-on-mobile {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  // left: 0;
+  // right: 0;
 }
-@media screen and (max-width: 599px) {
-  .ck.ck-toolbar.ck-toolbar_grouping.ck-reset_all.ck-rounded-corners.toolbar--keyboard-top-on-mobile {
-    position: absolute;
-    bottom: 0;
-    width: 100vw;
-    // left: 0;
-    // right: 0;
-  }
-  .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_se, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_sw {
-    top: auto;
-    bottom: 100%;
-  }
-  .ck.ck-tooltip-text {
-    bottom: 100%;
-  }
-  .ck.ck-tooltip.ck-tooltip_s {
-    transform: translateY(-100%);
-  }
-  .ck.ck-tooltip.ck-tooltip_s .ck-tooltip__text::after {
-    top: unset;
-    bottom: calc(-1 * var(--ck-tooltip-arrow-size));
-    border-color: var(--ck-color-tooltip-background) transparent transparent transparent;
-    border-width: var(--ck-tooltip-arrow-size) var(--ck-tooltip-arrow-size) 0 var(--ck-tooltip-arrow-size)
-  }
+.ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_se, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_sw {
+  top: auto;
+  bottom: 100%;
+}
+.ck.ck-tooltip-text {
+  bottom: 100%;
+}
+.ck.ck-tooltip.ck-tooltip_s {
+  transform: translateY(-100%);
+}
+.ck.ck-tooltip.ck-tooltip_s .ck-tooltip__text::after {
+  top: unset;
+  bottom: calc(-1 * var(--ck-tooltip-arrow-size));
+  border-color: var(--ck-color-tooltip-background) transparent transparent transparent;
+  border-width: var(--ck-tooltip-arrow-size) var(--ck-tooltip-arrow-size) 0 var(--ck-tooltip-arrow-size)
 }
 </style>
